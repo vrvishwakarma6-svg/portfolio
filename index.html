@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Varsh - Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0a0a0f;
+  --card:#15151e;
+  --card2:#1e1e2e;
+  --border:#2a2a3d;
+  --text:#e8e8f0;
+  --muted:#9a9ab0;
+  --accent:#6c5ce7;
+  --accent2:#00cec9;
+  --green:#00ff88;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Space Grotesk',sans-serif;overflow-x:hidden}
+.mono{font-family:'JetBrains Mono',monospace}
+nav{position:fixed;top:0;width:100%;z-index:100;background:rgba(10,10,15,0.8);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:18px 6%}
+.nav-inner{max-width:1200px;margin:auto;display:flex;justify-content:space-between;align-items:center}
+.logo{font-weight:700;font-size:20px;letter-spacing:-0.5px}
+.logo span{color:var(--accent)}
+.links{display:flex;gap:28px}
+.links a{color:var(--muted);text-decoration:none;font-size:14px;transition:.2s}
+.links a:hover{color:var(--text)}
+.btn{padding:10px 22px;background:var(--accent);color:white;border-radius:100px;text-decoration:none;font-size:14px;font-weight:600;transition:.2s;display:inline-block}
+.btn:hover{transform:translateY(-2px);box-shadow:0 10px 20px rgba(108,92,231,0.3)}
+.hero{max-width:1200px;margin:auto;padding:140px 6% 80px;display:grid;grid-template-columns:1.2fr 0.8fr;gap:60px;align-items:center}
+.badge{display:inline-flex;align-items:center;gap:8px;padding:6px 14px;background:var(--card);border:1px solid var(--border);border-radius:100px;font-size:12px;color:var(--green);margin-bottom:24px}
+.dot{width:8px;height:8px;background:var(--green);border-radius:50%;box-shadow:0 0 10px var(--green);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.5}}
+h1{font-size:64px;line-height:0.95;letter-spacing:-2px;margin-bottom:20px}
+h1 .line2{color:var(--muted);font-weight:400}
+h1 .accent{color:var(--accent)}
+.hero p{color:var(--muted);font-size:17px;line-height:1.6;max-width:480px;margin-bottom:32px}
+.hero-stats{display:flex;gap:32px;margin-top:40px}
+.stat h3{font-size:32px}
+.stat span{color:var(--muted);font-size:13px;text-transform:uppercase;letter-spacing:1px}
+.card{ background:var(--card); border:1px solid var(--border); border-radius:20px; padding:28px; position:relative; overflow:hidden }
+.card::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg, transparent, var(--accent), transparent);opacity:0.5}
+.terminal{ background:#0f0f14; border-radius:16px; border:1px solid var(--border); overflow:hidden; font-family:'JetBrains Mono',monospace; font-size:13px }
+.term-head{padding:12px 16px;border-bottom:1px solid var(--border);display:flex;gap:6px;align-items:center}
+.circle{width:10px;height:10px;border-radius:50%}
+.term-body{padding:20px;color:#a0a0b8;line-height:1.7}
+.term-body .g{color:var(--green)} .term-body .w{color:white} .term-body .y{color:#fdcb6e} .term-body .b{color:#74b9ff}
+section{max-width:1200px;margin:auto;padding:60px 6%}
+.sec-head{display:flex;justify-content:space-between;align-items:end;margin-bottom:40px}
+.sec-head h2{font-size:36px;letter-spacing:-1px}
+.sec-head p{color:var(--muted);max-width:320px;font-size:14px}
+.grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.skill-card{padding:24px}
+.skill-card h4{font-size:14px;margin-bottom:16px;letter-spacing:0.5px;text-transform:uppercase;color:var(--muted)}
+.tags{display:flex;flex-wrap:wrap;gap:8px}
+.tag{padding:6px 12px;background:var(--card2);border:1px solid var(--border);border-radius:100px;font-size:12px;font-family:'JetBrains Mono',monospace}
+.project{transition:.3s;cursor:pointer}
+.project:hover{transform:translateY(-4px);border-color:var(--accent)}
+.project .top{display:flex;justify-content:space-between;margin-bottom:16px}
+.project h3{font-size:18px;margin-bottom:8px}
+.project p{color:var(--muted);font-size:13px;line-height:1.5;margin-bottom:16px}
+.project .meta{display:flex;gap:12px;font-size:11px;color:var(--muted);font-family:'JetBrains Mono',monospace}
+.edu{ display:flex; justify-content:space-between; align-items:center; }
+.edu h3{font-size:18px} .edu span{color:var(--accent);font-weight:600}
+.contact-box{background:linear-gradient(135deg, var(--card) 0%, #1a1a2e 100%);border-radius:28px;padding:50px;text-align:center;border:1px solid var(--border)}
+.contact-box h2{font-size:42px;margin-bottom:12px;letter-spacing:-1px}
+.contact-box p{color:var(--muted);margin-bottom:32px}
+.links-row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.outline{background:transparent;border:1px solid var(--border);color:var(--text)}
+.outline:hover{background:var(--card2)}
+footer{padding:40px 6%;text-align:center;color:var(--muted);font-size:12px;font-family:'JetBrains Mono',monospace;border-top:1px solid var(--border);margin-top:60px}
+@media(max-width:900px){
+  .hero{grid-template-columns:1fr;padding-top:100px}
+  h1{font-size:44px}
+  .grid2,.grid3{grid-template-columns:1fr}
+  .links{display:none}
+}
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <div class="logo mono">varsh<span>.dev</span></div>
+    <div class="links">
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <a class="btn mono" href="#contact">Hire Me</a>
+  </div>
+</nav>
+<div class="hero">
+  <div>
+    <div class="badge mono"><div class="dot"></div> Available for internship</div>
+    <h1>B.Sc. IT Student<br><span class="line2">Aspiring</span><br><span class="accent">Web Developer</span></h1>
+    <p>Motivated B.Sc. IT Second Year student from Mumbai (CGPA 8.4). I build websites and I just built my own Vulnerability Scanner in Python.</p>
+    <div style="display:flex;gap:12px">
+      <a class="btn" href="#projects">View Projects →</a>
+      <a class="btn outline" href="#">Download CV</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat"><h3>8.4</h3><span>CGPA</span></div>
+      <div class="stat"><h3>4+</h3><span>Projects</span></div>
+      <div class="stat"><h3>2nd</h3><span>Year B.Sc IT</span></div>
+    </div>
+  </div>
+  <div class="card" style="padding:0">
+    <div class="terminal">
+      <div class="term-head"><div class="circle" style="background:#ff5f56"></div><div class="circle" style="background:#ffbd2e"></div><div class="circle" style="background:#27c93f"></div><span style="margin-left:12px;color:var(--muted);font-size:12px">varsh@portfolio:~</span></div>
+      <div class="term-body">
+        <span class="g">$</span> <span class="w">whoami</span><br>
+        <span class="b">→</span> B.Sc IT Student @ Viva College<br>
+        <span class="b">→</span> Mumbai, Maharashtra<br><br>
+        <span class="g">$</span> <span class="w">python day6_scanner.py</span><br>
+        <span class="y">[+] Target:</span> testphp.vulnweb.com<br>
+        <span class="y">[+] Banner:</span> Apache/2.4.7 (Ubuntu)<br>
+        <span class="g">[✓] Found:</span> CVE-2014-0226 - 6.8 Medium<br>
+        <span class="g">[✓] Report Generated:</span> My_First_Hack_Report.txt<br><br>
+        <span class="g">$</span> <span class="w">skills --list</span><br>
+        <span class="w">HTML, CSS, JS, Python, SQL, Ethical Hacking</span><br><br>
+        <span class="g">_</span>
+      </div>
+    </div>
+  </div>
+</div>
+<section id="about">
+  <div class="sec-head">
+    <h2>About Me</h2>
+    <p>Quick learner, problem solver, team player from Mumbai</p>
+  </div>
+  <div class="grid2">
+    <div class="card">
+      <h3 style="margin-bottom:12px">Profile</h3>
+      <p style="color:var(--muted);line-height:1.6;font-size:14px">Motivated and enthusiastic B.Sc. IT student with strong interest in Web Development and practical knowledge of HTML, CSS, JavaScript, SQL, and programming fundamentals.</p>
+      <div style="margin-top:20px;display:flex;gap:8px;flex-wrap:wrap">
+        <span class="tag">Mumbai</span><span class="tag">English • Hindi</span><span class="tag">Viva College</span>
+      </div>
+    </div>
+    <div class="card">
+      <h3 style="margin-bottom:12px">Education</h3>
+      <div class="edu" style="margin-top:12px">
+        <div><h3>B.Sc. in Information Technology</h3><p style="color:var(--muted);font-size:13px;margin-top:4px">Viva College - Second Year</p></div>
+        <span class="mono">8.4 CGPA</span>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="skills">
+  <div class="sec-head">
+    <h2>Technical Arsenal</h2>
+    <p>What I use to build stuff</p>
+  </div>
+  <div class="grid3">
+    <div class="card skill-card">
+      <h4>Web Development</h4>
+      <div class="tags"><span class="tag">HTML5</span><span class="tag">CSS3</span><span class="tag">JavaScript</span><span class="tag">Responsive</span></div>
+    </div>
+    <div class="card skill-card">
+      <h4>Programming</h4>
+      <div class="tags"><span class="tag">Python</span><span class="tag">C</span><span class="tag">C++</span><span class="tag">SQL</span></div>
+    </div>
+    <div class="card skill-card">
+      <h4>Cybersecurity (New)</h4>
+      <div class="tags"><span class="tag">Banner Grabbing</span><span class="tag">CVE Hunting</span><span class="tag">NVD</span><span class="tag">Reporting</span></div>
+    </div>
+  </div>
+</section>
+<section id="projects">
+  <div class="sec-head">
+    <h2>Featured Projects</h2>
+    <p>Real code, not just theory</p>
+  </div>
+  <div class="grid2">
+    <div class="card project">
+      <div class="top"><span class="mono" style="font-size:11px;padding:4px 10px;background:rgba(0,255,136,0.1);color:var(--green);border-radius:100px;border:1px solid rgba(0,255,136,0.2)">NEW • 2026</span><span class="mono" style="font-size:12px;color:var(--muted)">Python</span></div>
+      <h3>Vulnerability Scanner + Report Generator</h3>
+      <p>Built during 7-day ethical hacking challenge. It grabs server banner, extracts version, maps to NVD CVE and generates a professional pentest report.</p>
+      <div class="meta"><span>day5.py</span><span>day6.py</span><span>day7_report.py</span></div>
+    </div>
+    <div class="card project">
+      <div class="top"><span class="mono" style="font-size:11px;padding:4px 10px;background:var(--card2);color:var(--muted);border-radius:100px;border:1px solid var(--border)">PYTHON</span><span class="mono" style="font-size:12px;color:var(--muted)">CLI</span></div>
+      <h3>Calculator Application</h3>
+      <p>Developed a basic calculator using Python with addition, subtraction, multiplication, division.</p>
+      <div class="meta"><span>Python</span><span>Logic</span><span>Problem Solving</span></div>
+    </div>
+  </div>
+</section>
+<section id="contact">
+  <div class="contact-box">
+    <h2>Let's Build Something?</h2>
+    <p class="mono">Currently looking for Web Development Internship</p>
+    <div class="links-row">
+      <a class="btn" href="mailto:yourmail@gmail.com">vrvishwakarma6@gmail.com</a>
+      <a class="btn outline" href="#">LinkedIn</a>
+      <a class="btn outline" href="#">GitHub</a>
+    </div>
+  </div>
+</section>
+<footer class="mono">© 2026 varsh.dev — Built with HTML/CSS/JS • B.Sc IT • Viva College</footer>
+</body>
+</html>
